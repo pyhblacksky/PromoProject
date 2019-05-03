@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author: pyh
@@ -78,15 +79,22 @@ public class ItemServiceImpl implements ItemService {
         itemStockDOMapper.insertSelective(itemStockDO);
 
         //返回创建完成的对象
-
         return this.getItemById(itemModel.getId());
     }
 
+    //返回商品列表
     @Override
     public List<ItemModel> listItem() {
-        return null;
+        List<ItemDO> itemDOList = itemDOMapper.listItem();
+        List<ItemModel> itemModelList = itemDOList.stream().map(itemDO -> {
+            ItemStockDO itemStockDO = itemStockDOMapper.selectByItemId(itemDO.getId());
+            ItemModel itemModel = this.convertModelFromDataObject(itemDO, itemStockDO);
+            return itemModel;
+        }).collect(Collectors.toList());
+        return itemModelList;
     }
 
+    //根据id查找商品
     @Override
     public ItemModel getItemById(Integer id) {
         ItemDO itemDO = itemDOMapper.selectByPrimaryKey(id);
@@ -95,7 +103,19 @@ public class ItemServiceImpl implements ItemService {
         }
 
         //操作获得库存数量
+        ItemStockDO itemStockDO = itemStockDOMapper.selectByItemId(itemDO.getId());
 
-        return null;
+        //将dataobject ->model
+        ItemModel itemModel = convertModelFromDataObject(itemDO, itemStockDO);
+
+        return itemModel;
+    }
+
+    private ItemModel convertModelFromDataObject(ItemDO itemDO, ItemStockDO itemStockDO){
+        ItemModel itemModel = new ItemModel();
+        BeanUtils.copyProperties(itemDO, itemModel);
+        itemModel.setStock(itemStockDO.getStock());
+
+        return itemModel;
     }
 }
