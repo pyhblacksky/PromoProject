@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(userDO,userModel);//拷贝对应的字段
 
         if(userPasswordDO != null){
-            userModel.setEncriptPassword(userPasswordDO.getEncrptPassword());
+            userModel.setEncrptPassword(userPasswordDO.getEncrptPassword());
         }
 
         return userModel;
@@ -107,7 +107,7 @@ public class UserServiceImpl implements UserService {
             return null;
         }
         UserPasswordDO userPasswordDO = new UserPasswordDO();
-        userPasswordDO.setEncrptPassword(userModel.getEncriptPassword());
+        userPasswordDO.setEncrptPassword(userModel.getEncrptPassword());
         userPasswordDO.setUserId(userModel.getId());
 
         return userPasswordDO;
@@ -136,7 +136,7 @@ public class UserServiceImpl implements UserService {
         UserModel userModel = convertFromDataObject(userDO, userPasswordDO);
 
         //比对用户信息内加密的密码是否和传输进来的密码相匹配
-        if(!StringUtils.equals(encrptPassword, userModel.getEncriptPassword())){
+        if(!StringUtils.equals(encrptPassword, userModel.getEncrptPassword())){
             throw new BusinessException(EmBusinessError.USER_LOGIN_FAIL);
         }
 

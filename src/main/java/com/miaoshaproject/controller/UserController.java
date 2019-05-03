@@ -85,7 +85,7 @@ public class UserController extends BaseController{
         userModel.setAge(age);
         userModel.setTelephone(telephone);
         userModel.setRegisterMode("byphone");
-        userModel.setEncriptPassword(this.EncodeByMd5(password));//加密存储密码
+        userModel.setEncrptPassword(this.EncodeByMd5(password));//加密存储密码
 
         userService.register(userModel);
 

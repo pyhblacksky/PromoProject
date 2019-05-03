@@ -33,7 +33,7 @@ public class UserModel {
     private String thirdPartyId;
 
     @NotBlank(message = "密码不能为空")
-    private String encriptPassword;
+    private String encrptPassword;
 
     public Integer getId() {
         return id;
@@ -91,11 +91,11 @@ public class UserModel {
         this.thirdPartyId = thirdPartyId;
     }
 
-    public String getEncriptPassword() {
-        return encriptPassword;
+    public String getEncrptPassword() {
+        return encrptPassword;
     }
 
-    public void setEncriptPassword(String encrptPassword) {
-        this.encriptPassword = encrptPassword;
+    public void setEncrptPassword(String encrptPassword) {
+        this.encrptPassword = encrptPassword;
     }
 }

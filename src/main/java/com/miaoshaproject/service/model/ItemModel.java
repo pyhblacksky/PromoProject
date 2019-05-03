@@ -1,5 +1,8 @@
 package com.miaoshaproject.service.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**
@@ -14,21 +17,27 @@ public class ItemModel {
     private Integer id;
 
     //商品名称
+    @NotNull(message = "商品名称不能为空")
     private String title;
 
     //商品价格
+    @NotNull(message = "商品价格不能为空")
+    @Min(value = 0, message = "商品价格必须大于0")
     private BigDecimal price;
 
     //商品描述
+    @NotBlank(message = "商品必须有描述信息，不能为空")
     private String description;
 
     //商品库存
+    @NotNull(message = "库存不能不填")
     private Integer stock;
 
-    //销量
+    //商品的销量，此商品销量非入参范围
     private Integer sales;
 
     //商品描述图片的url
+    @NotBlank(message = "商品图片信息不能为空")
     private String imgUrl;
 
     public Integer getId() {
