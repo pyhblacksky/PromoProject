@@ -30,7 +30,8 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <!--生成对应表及类名-->
+        <!--生成对应表及类名, 已经生成过，将其注释掉-->
+        <!--
         <table schema="miaosha" tableName="user_info" domainObjectName="UserDO"
                enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
@@ -45,6 +46,15 @@
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"></table>
         <table schema="miaosha" tableName="item_stock" domainObjectName="ItemStockDO"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table schema="miaosha" tableName="order_info" domainObjectName="OrderDO"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        -->
+        <table schema="miaosha" tableName="sequence_info" domainObjectName="SequenceDO"
                enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"></table>

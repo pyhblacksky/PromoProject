@@ -118,4 +118,23 @@ public class ItemServiceImpl implements ItemService {
 
         return itemModel;
     }
+
+    @Override
+    @Transactional
+    public boolean decreaseStock(Integer itemId, Integer amount) throws BusinessException {
+        //使用sql语句
+        int affectedRow = itemStockDOMapper.decreaseStock(itemId, amount); //返回影响的条目数: 1 或 0
+
+        if(affectedRow > 0){
+            return true;//更新库存成功
+        } else{
+            return false;//更新库存失败
+        }
+    }
+
+    @Override
+    @Transactional
+    public void increaseSales(Integer itemId, Integer amount) throws BusinessException {
+        itemDOMapper.increaseSales(itemId, amount);
+    }
 }
