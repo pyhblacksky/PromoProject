@@ -53,8 +53,12 @@
                enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        -->
         <table schema="miaosha" tableName="sequence_info" domainObjectName="SequenceDO"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        -->
+        <table schema="miaosha" tableName="promo" domainObjectName="PromoDO"
                enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"></table>
