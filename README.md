@@ -1,10 +1,20 @@
-# miaoshaProject
+# PromoProject
+
 一个秒杀商城——电商相关后端项目
+
 # 项目构建
 
 使用Springboot + MyBatis 构建 JavaWeb项目
 
-项目是电商秒杀基本流程及实现
+##### 项目实现了以下功能：
+
+用户登录，注册
+
+创建商品项
+
+用户下单
+
+秒杀活动
 
 
 
